@@ -10,26 +10,18 @@ using NPOI.HPSF;
 using NPOI.SS.UserModel;
 using NPOI.HSSF.Util;
 using NPOI.SS.Util;
-
-namespace BLOGBack.SystemManage
+namespace BLOGBack.ajax
 {
-    public partial class MeiNian : System.Web.UI.Page
+    public partial class GetTable1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { 
-            
-            }
+            Response.Write("");
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        private string ReadExcel()
         {
-            ReadExcel();
-        }
-
-
-        private void ReadExcel() {
-            int beginRow=6; int beginCol=0;
+            int beginRow = 6; int beginCol = 0;
 
             //有数据开始生成表格
             string save_path = "", tick = "";
@@ -65,10 +57,11 @@ namespace BLOGBack.SystemManage
             ICell cell = row.GetCell(beginCol);
             string value = cell.ToString();
 
-            this.test.Value = value;
-           this.test.Value= this.Table1.Rows[4].Cells[1].InnerText;
+            string tr = "<tr ><td rowspan='61' class='xmwidth'></td><td></td><td></td ><td class='xmsmwidth'></td> <td class='lcwidth'></td> <td>60</td><td>60</td> <td><input type=\"checkbox\" id= /></td></tr>";
+            for (int i = 6; i < 67; i++) { 
             
-        
+            }
+            return tr;
         }
 
 

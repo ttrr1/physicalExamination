@@ -14,14 +14,14 @@ namespace BLOGBack
         {
             if (!IsPostBack)
             {
-                if (!string.IsNullOrEmpty(Session["UserName"].ToString()))
-                {
-                    UserName = Session["UserName"].ToString();
-                }
-                else
-                {
-                    Response.Redirect("Login.aspx");
-                }
+                //if (!string.IsNullOrEmpty(Session["UserName"].ToString()))
+                //{
+                //    UserName = Session["UserName"].ToString();
+                //}
+                //else
+                //{
+                //    Response.Redirect("Login.aspx");
+                //}
             }
         }
     }

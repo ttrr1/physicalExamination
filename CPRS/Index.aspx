@@ -14,7 +14,7 @@
     <script type="text/javascript">
         var _menus = { "menus": [
 						{ "menuid": "1", "icon": "icon-sys", "menuname": "管理员系统",
-						    "menus": [{ "menuid": "11", "menuname": "链接管理", "icon": "icon-nav", "url": "/SystemManage/HrefInfo.aspx" },
+						    "menus": [{ "menuid": "11", "menuname": "链接管理", "icon": "icon-nav", "url": "/SystemManage/MeiNian.aspx" },
 									{ "menuid": "12", "menuname": "文章管理", "icon": "icon-add", "url": "/SystemManage/ArticleManage.aspx" },
 									{ "menuid": "13", "menuname": "管理员管理", "icon": "icon-users", "url": "/SystemManage/AdminInfo.aspx" },
 									{ "menuid": "14", "menuname": "博客用户管理(添加修改功能有BUG)", "icon": "icon-role", "url": "/SystemManage/BlogUserManage.aspx" },

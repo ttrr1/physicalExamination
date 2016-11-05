@@ -34,6 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI, Version=1.2.4.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -53,6 +57,7 @@
   <ItemGroup>
     <Content Include="bin\CPRS.dll" />
     <Content Include="bin\CPRS.pdb" />
+    <Content Include="bin\NPOI.dll" />
     <Content Include="css\default.css" />
     <Content Include="css\Login.css" />
     <Content Include="images\blocks.gif" />
@@ -410,6 +415,9 @@
     <Compile Include="ajax\EditPassword.ashx.cs">
       <DependentUpon>EditPassword.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ajax\GetTable.ashx.cs">
+      <DependentUpon>GetTable.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ajax\loginout.ashx.cs">
       <DependentUpon>loginout.ashx</DependentUpon>
     </Compile>
@@ -495,6 +503,10 @@
   <ItemGroup>
     <Content Include="ajax\EditPassword.ashx" />
     <Content Include="ajax\loginout.ashx" />
+    <Content Include="ajax\GetTable.ashx" />
+    <None Include="Excel\可利特.xlsx" />
+    <None Include="Excel\东华.xls" />
+    <None Include="Excel\美年体检最新报价.xls" />
     <None Include="JS\easyUI\demo\combobox_data.json" />
     <None Include="JS\easyUI\demo\datagrid_data.json" />
     <None Include="JS\easyUI\demo\datagrid_data2.json" />
