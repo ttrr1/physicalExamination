@@ -10,6 +10,6 @@
 namespace BLOGBack.SystemManage {
     
     
-    public partial class MeiNian {
+    public partial class KeLiTe {
     }
 }

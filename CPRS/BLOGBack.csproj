@@ -55,6 +55,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ajax\GetTable.aspx" />
+    <Content Include="ajax\PrintExcel.aspx" />
     <Content Include="bin\CPRS.dll" />
     <Content Include="bin\CPRS.pdb" />
     <Content Include="bin\NPOI.dll" />
@@ -401,6 +403,7 @@
     <Content Include="SystemManage\BlogUserManage.aspx" />
     <Content Include="SystemManage\DongHua.aspx" />
     <Content Include="SystemManage\HrefInfo.aspx" />
+    <Content Include="SystemManage\KeLiTe.aspx" />
     <Content Include="SystemManage\MeiNian.aspx" />
     <Content Include="SystemManage\RevertList.aspx" />
     <Content Include="Web.config" />
@@ -415,11 +418,22 @@
     <Compile Include="ajax\EditPassword.ashx.cs">
       <DependentUpon>EditPassword.ashx</DependentUpon>
     </Compile>
-    <Compile Include="ajax\GetTable.ashx.cs">
-      <DependentUpon>GetTable.ashx</DependentUpon>
+    <Compile Include="ajax\GetTable.aspx.cs">
+      <DependentUpon>GetTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\GetTable.aspx.designer.cs">
+      <DependentUpon>GetTable.aspx</DependentUpon>
     </Compile>
     <Compile Include="ajax\loginout.ashx.cs">
       <DependentUpon>loginout.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\PrintExcel.aspx.cs">
+      <DependentUpon>PrintExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\PrintExcel.aspx.designer.cs">
+      <DependentUpon>PrintExcel.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataClass\DataHandler.cs" />
     <Compile Include="DataClass\JsonHelper.cs" />
@@ -480,6 +494,13 @@
     <Compile Include="SystemManage\HrefInfo.aspx.designer.cs">
       <DependentUpon>HrefInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SystemManage\KeLiTe.aspx.cs">
+      <DependentUpon>KeLiTe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemManage\KeLiTe.aspx.designer.cs">
+      <DependentUpon>KeLiTe.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SystemManage\MeiNian.aspx.cs">
       <DependentUpon>MeiNian.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -503,7 +524,7 @@
   <ItemGroup>
     <Content Include="ajax\EditPassword.ashx" />
     <Content Include="ajax\loginout.ashx" />
-    <Content Include="ajax\GetTable.ashx" />
+    <None Include="Excel\klt.xls" />
     <None Include="Excel\可利特.xlsx" />
     <None Include="Excel\东华.xls" />
     <None Include="Excel\美年体检最新报价.xls" />

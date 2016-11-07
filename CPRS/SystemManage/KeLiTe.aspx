@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="MeiNian.aspx.cs" Inherits="BLOGBack.SystemManage.MeiNian" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="KeLiTe.aspx.cs" Inherits="BLOGBack.SystemManage.KeLiTe" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
  <style type="text/css">
         table.second
@@ -43,7 +43,9 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  <table cellpadding="0" cellspacing="0" style="width: 100%">
+
+   
+        <table cellpadding="0" cellspacing="0" style="width: 100%">
             <tr>
                 <td style="padding-left: 2px">
                     <a href="#"  id="a_print"
@@ -57,7 +59,7 @@
         </div> 
         <script type="text/javascript">
             $(function () {
-                $.get("/ajax/GetTable.aspx",{"method":"ReadMnExcel"}, function (data, status) {
+                $.get("/ajax/GetTable.aspx", { "method": "ReadKltExcel" }, function (data, status) {
                     var dd = $('table :last').html();
                     var tr = $("data");
                     $("#testr").html(data);
@@ -67,14 +69,14 @@
                 $("#a_print").click(function () {
 
 
-                    var dept = $.trim($("#Dept").text());
-                    var sex = $.trim($("#sex :selected").val());
+                    var dept = $.trim($("#Dept").val());
+                    var sex = $.trim($("#sex :selected").text());
                     if (sex == "请选择") {
                         alert("请输入性别");
                         return false;
                     }
                     var name = $.trim($("#Name").val());
-                    
+
                     if (name == "") {
                         alert("请输入姓名");
                         return false;
@@ -97,7 +99,7 @@
 
                         });
                     } else {
-                       
+                        
                         $("#Table1 tr:gt(8)").find(":checkbox:checked").each(function () {
                             var sf = $(this).parent().prev().text();
                            
@@ -113,10 +115,10 @@
                     } else {
                         flag = true;
                     }
-                  
+                    
                     if (flag == true) {
                         alert("输入的金额：" + sum);
-                        $.get("/ajax/PrintExcel.aspx", { "method": "PrintMnExcelFile", "dept": dept, "name": name, "sex": sex, "ids": ids }, function (data, status) {
+                        $.get("/ajax/PrintExcel.aspx", { "method": "PrintKltExcelFile", "dept": dept, "name": name, "sex": sex, "ids": ids }, function (data, status) {
 
                             var model = JSON.parse(data);
 

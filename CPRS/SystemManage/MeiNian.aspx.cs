@@ -65,8 +65,8 @@ namespace BLOGBack.SystemManage
             ICell cell = row.GetCell(beginCol);
             string value = cell.ToString();
 
-            this.test.Value = value;
-           this.test.Value= this.Table1.Rows[4].Cells[1].InnerText;
+         
+          
             
         
         }

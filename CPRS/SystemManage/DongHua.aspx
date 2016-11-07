@@ -1,36 +1,140 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DongHua.aspx.cs" Inherits="BLOGBack.SystemManage.DongHua" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="DongHua.aspx.cs" Inherits="BLOGBack.SystemManage.DongHua" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+ <style type="text/css">
+        table.second
+        {
+        	border:1px dotted balck;
+            border-collapse:collapse;
+            width:900px;
+        }
+        table.second td
+        {
+        	border:1px solid black;
+        	font-size:12px;
+            border-collapse:collapse;
+            text-align:center;          
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-     <asp:Repeater ID="Repeater1" runat="server" >     
-      <HeaderTemplate>
-       <table style="border:1px solid black;">           
-        <tr>
-        <td colspan='8'>2016年邛崃东华医院体检菜单</td>
-        </tr>
-        <tr>
-        <td colspan='3'>姓名：<asp:TextBox ID="Name" runat="server" Width='100px'></asp:TextBox></td>
-        <td colspan='3'>单位：<asp:TextBox ID="Dept" runat="server" Width='100px'></asp:TextBox></td>
-        <td colspan='2'>体检号：<asp:TextBox ID="TestNum" runat="server" Width='100px'></asp:TextBox></td>
-        </tr>
+        }
+        
+        
+        table.second input
+        {
+            width:100px;
+        }
        
-      </HeaderTemplate>
+       .lcwidth
+       {
+         text-align:left;
+         white-space:pre-wrap;
+         width:200px;
+        }
+        .xmsmwidth
+       {
+         text-align:left;
+         white-space:pre-wrap;
+         width:150px;
+        }
+         .xmwidth
+       {
+         text-align:center;
+         white-space:pre-wrap;
+         width:150px;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-      <ItemTemplate>
-      </ItemTemplate>
+   
+       <table cellpadding="0" cellspacing="0" style="width: 100%">
+            <tr>
+                <td style="padding-left: 2px">
+                    <a href="#"  id="a_print"
+                        class="easyui-linkbutton" iconcls="icon-print">导出</a> 
+                </td>
+             </tr>
+        </table>
+   
+       
+        <div id="testr">
+        </div> 
+        <script type="text/javascript">
+            $(function () {
+                $.get("/ajax/GetTable.aspx", { "method": "ReadDHExcel" }, function (data, status) {
+                    var dd = $('table :last').html();
+                    var tr = $("data");
+                    $("#testr").html(data);
+                });
 
-      <FooterTemplate>
-          </table>
-        </FooterTemplate>
-    </asp:Repeater>
-    </div>
-    </form>
-</body>
-</html>
+                var flag;
+                $("#a_print").click(function () {
+
+
+                    var dept = $.trim($("#Dept").val());
+                    var sex = $.trim($("#sex :selected").text());
+                    if (sex == "请选择") {
+                        alert("请输入性别");
+                        return false;
+                    }
+                    var name = $.trim($("#Name").val());
+                   
+                    if (name == "") {
+                        alert("请输入姓名");
+                        return false;
+                    }
+                    var ids = "";
+                    var bx = $("#hjsum").text();
+                    var sum = parseInt(bx);
+                    var $ids = $("#Table1 tr:gt(8)").find(":checkbox:not(:checked)").each(function () {
+                        ids = ids + $(this).val() + ",";
+                    });
+                    ids = ids.substring(0, ids.length - 1);
+                   
+                    if (sex == '男') {
+                        $("#Table1 tr:gt(8)").find(":checkbox:checked").each(function () {
+                            var sf = $(this).parent().prev().prev().text();
+                           
+                            if (sf != "") {
+                                sum = sum + parseInt(sf);
+                            }
+
+                        });
+                    } else {
+                       
+                        $("#Table1 tr:gt(8)").find(":checkbox:checked").each(function () {
+                            var sf = $(this).parent().prev().text();
+                           
+                            if (sf != "") {
+                                sum = sum + parseInt(sf);
+                            }
+
+                        });
+                    }
+
+                    if (sum > 500) {
+                        flag = false;
+                    } else {
+                        flag = true;
+                    }
+                   
+                    if (flag == true) {
+                        alert("输入的金额：" + sum);
+                        $.get("/ajax/PrintExcel.aspx", { "method": "PrintDhExcelFile", "dept": dept, "name": name, "sex": sex, "ids": ids }, function (data, status) {
+
+                            var model = JSON.parse(data);
+
+                            if (model.state == "yes") {
+
+                                window.location.href = "/ajax/PrintExcel.aspx?method=BuildExcelByUrl&url=" + model.msg;
+                            } else {
+                                $.alert(model.msg);
+                            }
+                        });
+
+                    } else {
+                        alert("输入的金额：" + sum + " 大于500");
+                    }
+
+                });
+            });
+</script>
+</asp:Content>

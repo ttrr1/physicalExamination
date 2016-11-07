@@ -14,11 +14,10 @@
     <script type="text/javascript">
         var _menus = { "menus": [
 						{ "menuid": "1", "icon": "icon-sys", "menuname": "管理员系统",
-						    "menus": [{ "menuid": "11", "menuname": "链接管理", "icon": "icon-nav", "url": "/SystemManage/MeiNian.aspx" },
-									{ "menuid": "12", "menuname": "文章管理", "icon": "icon-add", "url": "/SystemManage/ArticleManage.aspx" },
-									{ "menuid": "13", "menuname": "管理员管理", "icon": "icon-users", "url": "/SystemManage/AdminInfo.aspx" },
-									{ "menuid": "14", "menuname": "博客用户管理(添加修改功能有BUG)", "icon": "icon-role", "url": "/SystemManage/BlogUserManage.aspx" },
-									{ "menuid": "15", "menuname": "回复管理", "icon": "icon-set", "url": "/SystemManage/RevertList.aspx" }								]
+						    "menus": [{ "menuid": "11", "menuname": "美年", "icon": "icon-nav", "url": "/SystemManage/MeiNian.aspx" },
+									{ "menuid": "12", "menuname": "东华", "icon": "icon-add", "url": "/SystemManage/DongHua.aspx" },
+									{ "menuid": "13", "menuname": "可利特", "icon": "icon-users", "url": "/SystemManage/KeLiTe.aspx" }
+																]
 						}
 				]
         };
@@ -147,17 +146,11 @@
     <div region="north" split="true" border="false" style="overflow: hidden; height: 30px;
         background: url(images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
         line-height: 20px; color: #fff; font-family: Verdana, 微软雅黑,黑体">
-        <span style="float: right; padding-right: 20px;" class="head">欢迎
-            <%=UserName%>
-            <a href="javascript:void()" style="cursor: pointer; text-decoration: none;" id="editpass">
-                修改密码</a> <a href="javascript:void()" id="loginOut" style="cursor: pointer; text-decoration: none;">
-                    安全退出</a></span> <span style="padding-left: 10px; font-size: 16px;">
-                        <img src="/images/blocks.gif" width="20" height="20" align="absmiddle" />
-                        管理信息系统</span>
+       
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2;">
         <div class="footer">
-            &nbsp;&nbsp;&nbsp; xxxxxxxxxxxx</div>
+            &nbsp;&nbsp;&nbsp; 体检录入系统</div>
     </div>
     <div region="west" split="true" title="导航菜单" style="width: 180px;" id="west">
         <div class="easyui-accordion1" fit="true" border="false">
@@ -168,7 +161,7 @@
         <div id="tabs" class="easyui-tabs" fit="true" border="false">
             <div title="欢迎使用" style="padding: 20px; overflow: hidden;" id="home">
                 <h1>
-                    欢迎使用EASYUI后台系统!</h1>
+                    欢迎使用体检管理系统!</h1>
             </div>
         </div>
     </div>

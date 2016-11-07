@@ -7,9 +7,9 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace BLOGBack.SystemManage {
+namespace BLOGBack.ajax {
     
     
-    public partial class MeiNian {
+    public partial class PrintExcel {
     }
 }
