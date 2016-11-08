@@ -74,7 +74,8 @@ namespace BLOGBack.ajax
 
             StringBuilder table = new StringBuilder("<table id=\"Table1\" class='second' style=\"border:1px solid black;\"");
             table.Append("<tr> <td colspan='8'>2016年邛崃东华医院体检菜单</td> </tr>");
-            table.Append("<tr><td colspan='3'>姓名：<input id=\"Name\" type=\"text\"  /></td> <td colspan='3'>单位：<input id=\"Dept\" type=\"text\"  /></td> <td colspan='2'>性别：<select  id=\"sex\"><option value=\"请选择\">请选择</option><option value=\"男\">男</option><option value=\"女\">女</option>〈/select></td></tr>");
+            table.Append("<tr><td colspan='8'>姓名：<input id=\"Name\" type=\"text\"  />  身份：<select  id=\"sflx\"><option value=\"请选择\">请选择</option><option value=\"民警\">民警</option><option value=\"辅警\">辅警</option>〈/select>"
+           + "<input id=\"sfz331\" type=\"hidden\" disabled=\"disabled\" />  身份证：<input id=\"sfz\" type=\"text\" style=\"width:150px;\"  /> 单位：<input id=\"Dept\" type=\"text\"  />性别：<select  id=\"sex\"><option value=\"请选择\">请选择</option><option value=\"男\">男</option><option value=\"女\">女</option>〈/select></td></tr>");
             table.Append("<tr><td rowspan='2'>项目</td><td rowspan='2'>序号</td><td rowspan='2'>项    目</td> <td rowspan='2'>项目说明</td> <td rowspan='2'>临床意义</td><td colspan='2' >检查对象</td> <td  rowspan='2'>选择项目</td>  </tr>");
             table.Append("<tr> <td >男性</td> <td >女性</td></tr>");
             //        table.Append(" <tr ><td rowspan='4'  class='xmwidth'>必选项目（体检基本内容）</td><td>1</td><td>甲肝</td><td class='xmsmwidth'></td> <td class='lcwidth'>辅助诊断甲型肝炎</td> <td>13</td><td>13</td> <td><input type=\"checkbox\" checked=\"checked\"  disabled=\"disabled\"/></td></tr>");
@@ -410,7 +411,8 @@ namespace BLOGBack.ajax
 
             StringBuilder table = new StringBuilder("<table id=\"Table1\" class='second' style=\"border:1px solid black;\"");
             table.Append("<tr> <td colspan='8'>可利特体检检查模版</td> </tr>");
-            table.Append("<tr><td colspan='3'>姓名：<input id=\"Name\" type=\"text\"  /></td> <td colspan='3'>单位：<input id=\"Dept\" type=\"text\"  /></td> <td colspan='2'>性别：<select  id=\"sex\"><option value=\"请选择\">请选择</option><option value=\"男\">男</option><option value=\"女\">女</option>〈/select></td></tr>");
+            table.Append("<tr><td colspan='8'>姓名：<input id=\"Name\" type=\"text\"  />  身份：<select  id=\"sflx\"><option value=\"请选择\">请选择</option><option value=\"民警\">民警</option><option value=\"辅警\">辅警</option>〈/select>"
+           + "<input id=\"sfz331\" type=\"hidden\" disabled=\"disabled\" />  身份证：<input id=\"sfz\" type=\"text\" style=\"width:150px;\"  /> 单位：<input id=\"Dept\" type=\"text\"  />性别：<select  id=\"sex\"><option value=\"请选择\">请选择</option><option value=\"男\">男</option><option value=\"女\">女</option>〈/select></td></tr>");
             table.Append("<tr><td rowspan='2'>项目</td><td rowspan='2'>序号</td><td rowspan='2'>项    目</td> <td rowspan='2'>项目说明</td> <td rowspan='2'>临床意义</td><td colspan='2' >检查对象</td> <td  rowspan='2'>选择项目</td>  </tr>");
             table.Append("<tr> <td >男性</td> <td >女性</td></tr>");
             //        table.Append(" <tr ><td rowspan='4'  class='xmwidth'>必选项目（体检基本内容）</td><td>1</td><td>甲肝</td><td class='xmsmwidth'></td> <td class='lcwidth'>辅助诊断甲型肝炎</td> <td>13</td><td>13</td> <td><input type=\"checkbox\" checked=\"checked\"  disabled=\"disabled\"/></td></tr>");
@@ -924,7 +926,8 @@ namespace BLOGBack.ajax
 
             StringBuilder table = new StringBuilder("<table id=\"Table1\" class='second' style=\"border:1px solid black;\"");
             table.Append("<tr> <td colspan='8'>体检检查模版</td> </tr>");
-            table.Append("<tr><td colspan='3'>姓名：<input id=\"Name\" type=\"text\"  /></td> <td colspan='3'>单位：<input id=\"Dept\" type=\"text\"  /></td> <td colspan='2'>性别：<select  id=\"sex\"><option value=\"请选择\">请选择</option><option value=\"男\">男</option><option value=\"女\">女</option>〈/select></td></tr>");
+            table.Append("<tr><td colspan='8'>姓名：<input id=\"Name\" type=\"text\"  />  身份：<select  id=\"sflx\"><option value=\"请选择\">请选择</option><option value=\"民警\">民警</option><option value=\"辅警\">辅警</option>〈/select>"
+            + "<input id=\"sfz331\" type=\"hidden\" disabled=\"disabled\" />  身份证：<input id=\"sfz\" type=\"text\" style=\"width:150px;\"  /> 单位：<input id=\"Dept\" type=\"text\"  />性别：<select  id=\"sex\"><option value=\"请选择\">请选择</option><option value=\"男\">男</option><option value=\"女\">女</option>〈/select></td></tr>");
             table.Append("<tr><td rowspan='2'>项目</td><td rowspan='2'>序号</td><td rowspan='2'>项    目</td> <td rowspan='2'>项目说明</td> <td rowspan='2'>临床意义</td><td colspan='2' >检查对象</td> <td  rowspan='2'>选择项目</td>  </tr>");
             table.Append("<tr> <td >男性</td> <td >女性</td></tr>");
             //        table.Append(" <tr ><td rowspan='4'  class='xmwidth'>必选项目（体检基本内容）</td><td>1</td><td>甲肝</td><td class='xmsmwidth'></td> <td class='lcwidth'>辅助诊断甲型肝炎</td> <td>13</td><td>13</td> <td><input type=\"checkbox\" checked=\"checked\"  disabled=\"disabled\"/></td></tr>");

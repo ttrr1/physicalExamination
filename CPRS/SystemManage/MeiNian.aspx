@@ -41,6 +41,7 @@
          width:150px;
         }
     </style>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <table cellpadding="0" cellspacing="0" style="width: 100%">
@@ -57,24 +58,29 @@
         </div> 
         <script type="text/javascript">
             $(function () {
-                $.get("/ajax/GetTable.aspx",{"method":"ReadMnExcel"}, function (data, status) {
+                $.ajaxSetup({//取消异步，防止取不到返回html 
+                    async: false
+                });
+                $.get("/ajax/GetTable.aspx", { "method": "ReadMnExcel" }, function (data, status) {
                     var dd = $('table :last').html();
                     var tr = $("data");
                     $("#testr").html(data);
+                    flag_load = true;
                 });
-
+               
                 var flag;
                 $("#a_print").click(function () {
+                    var sf = $.trim($("#sflx :selected").val());
+                    var sfz = $.trim($("#sfz").val());
 
-
-                    var dept = $.trim($("#Dept").text());
+                    var dept = $.trim($("#Dept").val());
                     var sex = $.trim($("#sex :selected").val());
                     if (sex == "请选择") {
                         alert("请输入性别");
                         return false;
                     }
                     var name = $.trim($("#Name").val());
-                    
+
                     if (name == "") {
                         alert("请输入姓名");
                         return false;
@@ -86,21 +92,21 @@
                         ids = ids + $(this).val() + ",";
                     });
                     ids = ids.substring(0, ids.length - 1);
-                    
+
                     if (sex == '男') {
                         $("#Table1 tr:gt(8)").find(":checkbox:checked").each(function () {
                             var sf = $(this).parent().prev().prev().text();
-                           
+
                             if (sf != "") {
                                 sum = sum + parseInt(sf);
                             }
 
                         });
                     } else {
-                       
+
                         $("#Table1 tr:gt(8)").find(":checkbox:checked").each(function () {
                             var sf = $(this).parent().prev().text();
-                           
+
                             if (sf != "") {
                                 sum = sum + parseInt(sf);
                             }
@@ -113,10 +119,10 @@
                     } else {
                         flag = true;
                     }
-                  
+
                     if (flag == true) {
                         alert("输入的金额：" + sum);
-                        $.get("/ajax/PrintExcel.aspx", { "method": "PrintMnExcelFile", "dept": dept, "name": name, "sex": sex, "ids": ids }, function (data, status) {
+                        $.get("/ajax/PrintExcel.aspx", { "method": "PrintMnExcelFile", "dept": dept, "name": name,"sf":sf,"sfz":sfz, "sex": sex, "ids": ids }, function (data, status) {
 
                             var model = JSON.parse(data);
 
@@ -133,6 +139,10 @@
                     }
 
                 });
+
+
             });
 </script>
+
+<script type="text/javascript" src="../JS/tip.js"></script>
 </asp:Content>

@@ -16,6 +16,7 @@ namespace BLOGBack.ajax
 {
     public partial class PrintExcel : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
           
@@ -40,6 +41,8 @@ namespace BLOGBack.ajax
         {
             string name = Request.QueryString["name"];
             string sex = Request.QueryString["sex"];
+            string sf = Request.QueryString["sf"];
+            string sfz = Request.QueryString["sfz"];
             string dept = Request.QueryString["dept"];
             string ids = Request.QueryString["ids"];
 
@@ -80,12 +83,9 @@ namespace BLOGBack.ajax
 
                 ISheet sheet1 = hssfworkbook.GetSheet("Sheet1");
                 IRow row1 = sheet1.GetRow(1);
-                ICell cellName = row1.GetCell(1);
-                ICell cellDept = row1.GetCell(4);
-                ICell cellSex= row1.GetCell(6);
-                cellName.SetCellValue(name);
-                cellDept.SetCellValue(dept);
-                cellSex.SetCellValue(sex);
+                ICell cellName = row1.GetCell(0);
+                string biaotou = "姓名：" + name + "   身份：" + sf + "   身份证：" + sfz+"   单位：" + dept + "   性别："+sex;
+                cellName.SetCellValue(biaotou);
 
                 string[] idArray = ids.Split(',');
                 foreach (var item in idArray) {
@@ -104,7 +104,7 @@ namespace BLOGBack.ajax
                  hssfworkbook.Write(file);
                  file.Dispose();
                  file.Close();
-               
+                 
                 
                 result = "{\"state\":\"yes\",\"msg\":\"~/UploadFile/xls_files/" + tick + vname + "\"}";
                // result = "{\"state\":\"yes\",\"msg\":\"~/Excel/" + tick + vname + "\"}";
@@ -112,8 +112,10 @@ namespace BLOGBack.ajax
             catch (Exception ex) {
 
                 result = "{\"state\":\"no\",\"msg\":\"生成报表失败错误信息:" + ex.Message + "!\"}";
+                throw (ex);
             }
             Response.Write(result);
+            
         }
 
         #endregion
@@ -123,6 +125,8 @@ namespace BLOGBack.ajax
         #region 导出可利特
         public void PrintKltExcelFile()
         {
+            string sf = Request.QueryString["sf"];
+            string sfz = Request.QueryString["sfz"];
             string name = Request.QueryString["name"];
             string sex = Request.QueryString["sex"];
             string dept = Request.QueryString["dept"];
@@ -164,13 +168,11 @@ namespace BLOGBack.ajax
                 style_border.SetFont(font);
 
                 ISheet sheet1 = hssfworkbook.GetSheet("Sheet1");
+                
                 IRow row1 = sheet1.GetRow(1);
-                ICell cellName = row1.GetCell(1);
-                ICell cellDept = row1.GetCell(4);
-                ICell cellSex = row1.GetCell(6);
-                cellName.SetCellValue(name);
-                cellDept.SetCellValue(dept);
-                cellSex.SetCellValue(sex);
+                ICell cellName = row1.GetCell(0);
+                string biaotou = "姓名：" + name + "   身份：" + sf + "   身份证：" + sfz + "   单位：" + dept + "   性别：" + sex;
+                cellName.SetCellValue(biaotou);
 
                 string[] idArray = ids.Split(',');
                 foreach (var item in idArray)
@@ -193,24 +195,28 @@ namespace BLOGBack.ajax
                 hssfworkbook.Write(file);
                 file.Dispose();
                 file.Close();
-
-
+                
+               
                 result = "{\"state\":\"yes\",\"msg\":\"~/UploadFile/xls_files/" + tick + vname + "\"}";
                 // result = "{\"state\":\"yes\",\"msg\":\"~/Excel/" + tick + vname + "\"}";
             }
             catch (Exception ex)
             {
-                throw (ex);
+                
 
                 result = "{\"state\":\"no\",\"msg\":\"生成报表失败错误信息:" + ex.Message + "!\"}";
+                throw (ex);
             }
             Response.Write(result);
+            
         }
         #endregion
 
         #region 导出东华
         public void PrintDhExcelFile()
         {
+            string sf = Request.QueryString["sf"];
+            string sfz = Request.QueryString["sfz"];
             string name = Request.QueryString["name"];
             string sex = Request.QueryString["sex"];
             string dept = Request.QueryString["dept"];
@@ -253,12 +259,9 @@ namespace BLOGBack.ajax
 
                 ISheet sheet1 = hssfworkbook.GetSheet("Sheet1");
                 IRow row1 = sheet1.GetRow(3);
-                ICell cellName = row1.GetCell(1);
-                ICell cellDept = row1.GetCell(4);
-                ICell cellSex = row1.GetCell(6);
-                cellName.SetCellValue(name);
-                cellDept.SetCellValue(dept);
-                cellSex.SetCellValue(sex);
+                ICell cellName = row1.GetCell(0);
+                string biaotou = "姓名：" + name + "   身份：" + sf + "   身份证：" + sfz + "   单位：" + dept + "   性别：" + sex;
+                cellName.SetCellValue(biaotou);
 
                 string[] idArray = ids.Split(',');
                 foreach (var item in idArray)
@@ -281,7 +284,7 @@ namespace BLOGBack.ajax
                 hssfworkbook.Write(file);
                 file.Dispose();
                 file.Close();
-
+                
 
                 result = "{\"state\":\"yes\",\"msg\":\"~/UploadFile/xls_files/" + tick + vname + "\"}";
                 // result = "{\"state\":\"yes\",\"msg\":\"~/Excel/" + tick + vname + "\"}";
@@ -290,8 +293,10 @@ namespace BLOGBack.ajax
             {
 
                 result = "{\"state\":\"no\",\"msg\":\"生成报表失败错误信息:" + ex.Message + "!\"}";
+                throw (ex);
             }
             Response.Write(result);
+            
         }
         #endregion
         /// <summary>

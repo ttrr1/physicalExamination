@@ -59,6 +59,9 @@
         </div> 
         <script type="text/javascript">
             $(function () {
+                $.ajaxSetup({//取消异步，防止取不到返回html 
+                    async: false
+                });
                 $.get("/ajax/GetTable.aspx", { "method": "ReadKltExcel" }, function (data, status) {
                     var dd = $('table :last').html();
                     var tr = $("data");
@@ -68,7 +71,8 @@
                 var flag;
                 $("#a_print").click(function () {
 
-
+                    var sf = $.trim($("#sflx :selected").val());
+                    var sfz = $.trim($("#sfz").val());
                     var dept = $.trim($("#Dept").val());
                     var sex = $.trim($("#sex :selected").text());
                     if (sex == "请选择") {
@@ -118,7 +122,7 @@
                     
                     if (flag == true) {
                         alert("输入的金额：" + sum);
-                        $.get("/ajax/PrintExcel.aspx", { "method": "PrintKltExcelFile", "dept": dept, "name": name, "sex": sex, "ids": ids }, function (data, status) {
+                        $.get("/ajax/PrintExcel.aspx", { "method": "PrintKltExcelFile", "dept": dept, "sf": sf, "sfz": sfz, "name": name, "sex": sex, "ids": ids }, function (data, status) {
 
                             var model = JSON.parse(data);
 
@@ -137,4 +141,5 @@
                 });
             });
 </script>
+<script type="text/javascript" src="../JS/tip.js"></script>
 </asp:Content>
