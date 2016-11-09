@@ -45,12 +45,12 @@ namespace BLOGBack.ajax
             string sfz = Request.QueryString["sfz"];
             string dept = Request.QueryString["dept"];
             string ids = Request.QueryString["ids"];
-
+            string sum = Request.QueryString["sum"];
             string result = "";
             try
             {
                 int beginRow = 4; int beginCol = 0;
-                int endRow = 45; int endCol = 7;
+                int endRow = 46; int endCol = 7;
 
                 //有数据开始生成表格
                 string save_path = "", tick = "";
@@ -87,6 +87,12 @@ namespace BLOGBack.ajax
                 string biaotou = "姓名：" + name + "   身份：" + sf + "   身份证：" + sfz+"   单位：" + dept + "   性别："+sex;
                 cellName.SetCellValue(biaotou);
 
+
+                IRow rowend = sheet1.GetRow(endRow);
+                ICell cellend2 = rowend.GetCell(4);
+                string hhjjh = cellend2.ToString();
+                ICell cellend = rowend.GetCell(5);
+                cellend.SetCellValue(sum);
                 string[] idArray = ids.Split(',');
                 foreach (var item in idArray) {
                     int id = int.Parse(item);
@@ -131,12 +137,13 @@ namespace BLOGBack.ajax
             string sex = Request.QueryString["sex"];
             string dept = Request.QueryString["dept"];
             string ids = Request.QueryString["ids"];
+            string sum = Request.QueryString["sum"];
 
             string result = "";
             try
             {
                 int beginRow = 4; int beginCol = 0;
-                int endRow = 45; int endCol = 7;
+                int endRow = 40; int endCol = 7;
 
                 //有数据开始生成表格
                 string save_path = "", tick = "";
@@ -174,6 +181,11 @@ namespace BLOGBack.ajax
                 string biaotou = "姓名：" + name + "   身份：" + sf + "   身份证：" + sfz + "   单位：" + dept + "   性别：" + sex;
                 cellName.SetCellValue(biaotou);
 
+                IRow rowend = sheet1.GetRow(endRow);
+                ICell cellend2 = rowend.GetCell(4);
+                string hhjjh = cellend2.ToString();
+                ICell cellend = rowend.GetCell(5);
+                cellend.SetCellValue(sum);
                 string[] idArray = ids.Split(',');
                 foreach (var item in idArray)
                 {
@@ -221,12 +233,12 @@ namespace BLOGBack.ajax
             string sex = Request.QueryString["sex"];
             string dept = Request.QueryString["dept"];
             string ids = Request.QueryString["ids"];
-
+            string sum = Request.QueryString["sum"];
             string result = "";
             try
             {
                 int beginRow = 4; int beginCol = 0;
-                int endRow = 45; int endCol = 7;
+                int endRow = 84; int endCol = 7;
 
                 //有数据开始生成表格
                 string save_path = "", tick = "";
@@ -262,7 +274,11 @@ namespace BLOGBack.ajax
                 ICell cellName = row1.GetCell(0);
                 string biaotou = "姓名：" + name + "   身份：" + sf + "   身份证：" + sfz + "   单位：" + dept + "   性别：" + sex;
                 cellName.SetCellValue(biaotou);
-
+                IRow rowend = sheet1.GetRow(84);
+                ICell cellend2 = rowend.GetCell(4);
+                string hhjjh = cellend2.ToString();
+                ICell cellend = rowend.GetCell(5);
+                cellend.SetCellValue(sum);
                 string[] idArray = ids.Split(',');
                 foreach (var item in idArray)
                 {

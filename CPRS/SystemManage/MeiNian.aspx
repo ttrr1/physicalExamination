@@ -41,7 +41,7 @@
          width:150px;
         }
     </style>
-    
+    <script type="text/javascript" src="../JS/json2.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <table cellpadding="0" cellspacing="0" style="width: 100%">
@@ -122,9 +122,9 @@
 
                     if (flag == true) {
                         alert("输入的金额：" + sum);
-                        $.get("/ajax/PrintExcel.aspx", { "method": "PrintMnExcelFile", "dept": dept, "name": name,"sf":sf,"sfz":sfz, "sex": sex, "ids": ids }, function (data, status) {
+                        $.get("/ajax/PrintExcel.aspx", { "method": "PrintMnExcelFile", "sum": sum, "dept": dept, "name": name, "sf": sf, "sfz": sfz, "sex": sex, "ids": ids }, function (data, status) {
 
-                            var model = JSON.parse(data);
+                            var model = eval('(' + data + ')'); ;
 
                             if (model.state == "yes") {
 

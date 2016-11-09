@@ -391,6 +391,7 @@
     <Content Include="JS\easyUI\themes\icons\sum.png" />
     <Content Include="JS\easyUI\themes\icons\tip.png" />
     <Content Include="JS\easyUI\themes\icons\undo.png" />
+    <Content Include="JS\json2.js" />
     <Content Include="JS\tip.js" />
     <Content Include="JS\wikmain.js" />
     <Content Include="JS\wikmenu.js" />
